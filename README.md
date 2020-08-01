@@ -9,6 +9,6 @@ echo 2 | sudo tee /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
 
 The fan_boost_mode can take the following values:
-- `--0`: Balanced (default).
-- `--1`: Overboost.
-- `--2`: Silent. Fan speed never exceeds 2900RPM.
+- `0`: Balanced (default).
+- `1`: Overboost.
+- `2`: Silent. Fan speed never exceeds 2900RPM.
