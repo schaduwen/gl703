@@ -23,3 +23,7 @@ cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon*/fan1_input
 ```
 
 ## Keyboard backlight
+
+#### rogauracore
+- [rogauracore](https://github.com/wroberts/rogauracore) by wroberts
+- [OpenRGB](https://github.com/CalcProgrammer1/OpenRGB) by CalcProgrammer1
