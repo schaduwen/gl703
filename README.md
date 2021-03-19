@@ -13,7 +13,7 @@ With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now wo
 
 Undervolt
 ---------
-
+The i7-8750H is supported on undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
 
 Keyboard Backlight
 ------------------
@@ -23,31 +23,16 @@ Functionality for the Fn keys need to be manually implemented.
 * rogauracore by wroberts (https://github.com/wroberts/rogauracore)
 * OpenRGB by CalcProgrammer1 (https://github.com/CalcProgrammer1/OpenRGB)
 
-I went with rogauracore.
+I went with rogauracore:
 1. Install dependencies (libusb-1_0-devel on openSUSE).
-2. Compile program, instructions on their github.
-?. (Optional) Allow program to run passwordless sudo via editing sudoers with visudo.
+2. Compile program, instructions on their respective githubs.
+3. Bind the rogauracore brightness commands to the XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp keys using your preferred method.
 
-Without kernel 5.11+, the keyboard needs to be waken on boot to accept rogauracore commands:
+#### N-Key keyboards with old kernels:
+Without kernel 5.11+, N-Key keyboards needs to be waken on boot to accept rogauracore commands:
 ```
 /usr/local/bin/rogauracore initialize_keyboard
 ```
-
-#### Configure keyboard backlight brightness:
-```
-/usr/local/bin/rogauracore brightness 0
-```
-rogauracore brightness can take the following values:
-* `0`: 0%
-* `1`: 33%
-* `2`: 66%
-* `3`: 100%
-
-#### Configure keyboard backlight color:
-```
-/usr/local/bin/rogauracore green
-```
-rogauracore accepts custom hex colors, backlight effects, and four zone coloring.
 
 Usage
 -----
@@ -74,6 +59,32 @@ Using sudo and tee:
 ```
 echo 2 | sudo tee /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
+
+#### Undervolt CPU (root required):
+Undervolting CPU core and CPU cache by -130mV:
+```
+/usr/local/bin/undervolt --core -130 --cache -130
+```
+Temperature limits are also supported. Limit CPU temp to 80 degree celsius:
+```
+/usr/local/bin/undervolt --temp 80
+```
+
+#### Configure keyboard backlight brightness:
+```
+/usr/local/bin/rogauracore brightness 0
+```
+rogauracore brightness can take the following values:
+* `0`: 0%
+* `1`: 33%
+* `2`: 66%
+* `3`: 100%
+
+#### Configure keyboard backlight color:
+```
+/usr/local/bin/rogauracore green
+```
+rogauracore accepts custom hex colors, backlight effects, and four zone coloring.
 
 Reference
 ---------
