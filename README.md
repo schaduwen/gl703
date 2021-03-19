@@ -14,6 +14,7 @@ With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now wo
 Undervolt
 ---------
 The i7-8750H is supported on undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
+As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included [3].
 
 Keyboard Backlight
 ------------------
@@ -86,8 +87,10 @@ rogauracore brightness can take the following values:
 ```
 rogauracore accepts custom hex colors, backlight effects, and four zone coloring.
 
-Reference
----------
+References
+----------
 [1] In line 1725 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/platform/x86/asus-wmi.c?h=v5.6.13, the fan_boost_mode_store function returns the wrong value. This will cause 100% cpu utilization. This is fixed in kernel 5.7. To use an earlier kernel the following patch is required https://lkml.org/lkml/2020/3/4/351.
 
 [2] Kernel hasn't included support for the N-Key keyboard (0b05:1866, line 190 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/hid/hid-ids.h?h=v5.10.16).
+
+[3] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
