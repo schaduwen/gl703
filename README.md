@@ -8,12 +8,12 @@ Ensure whatever distribution used has a kernel recent enough to support the feat
 * Fan control (5.7+)
 * Fn keys (5.11+)
 
-Prior to kernel 5.7, configuring fan_boost_mode caused 100% CPU utilization [1](https://github.com/schaduwen/gl703/blob/master/README.md#references).
-With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now work [2](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+Prior to kernel 5.7, configuring fan_boost_mode caused 100% CPU utilization [[1]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now work [[2]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Headphone/mic Jack
 ------------------
-Sometime during kernel 5.7, an update caused the headphone/microphone jack to not work [3](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+Sometime during kernel 5.7, an update caused the headphone/microphone jack to not work [[3]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 Add `options snd-hda-intel model=dell-headset-multi` to /etc/modprobe.d/alsa.conf.
 If the alsa.conf does not exist, create it.
 The device needs to be powered off (not rebooted) for the changes to take effect.
@@ -21,7 +21,7 @@ The device needs to be powered off (not rebooted) for the changes to take effect
 Undervolt
 ---------
 The i7-8750H can be undervolted with the program undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
-As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included [4](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included [[4]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Keyboard Backlight
 ------------------
