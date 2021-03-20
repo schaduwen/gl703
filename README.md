@@ -11,10 +11,17 @@ Ensure whatever distribution used has a kernel recent enough to support the feat
 Prior to kernel 5.7, configuring fan_boost_mode caused 100% CPU utilization [1].
 With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now work [2].
 
+Headphone/mic Jack
+------------------
+Sometime during kernel 5.7, an update caused the headphone/microphone jack to not work [3].
+Add `options snd-hda-intel model=dell-headset-multi` to /etc/modprobe.d/alsa.conf.
+If the alsa.conf does not exist, create it.
+The device needs to be powered off (not rebooted) for the changes to take effect.
+
 Undervolt
 ---------
-The i7-8750H is supported on undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
-As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included [3].
+The i7-8750H can be undervolted with the program undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
+As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included [4].
 
 Keyboard Backlight
 ------------------
@@ -93,4 +100,6 @@ References
 
 [2] Kernel hasn't included support for the N-Key keyboard (0b05:1866, line 190 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/hid/hid-ids.h?h=v5.10.16).
 
-[3] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
+[3] https://forum.manjaro.org/t/sound-from-speakers-no-sound-from-3-5mm-jack-audio/5343/27
+
+[4] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
