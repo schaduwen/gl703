@@ -120,6 +120,7 @@ Good:
 
 Meh:
 * cpu (hot)
+* gpu (proprietary drivers - cannot configure)
 * fan (loud, constantly spins up and down on silent mode)
 * lid (cannot disable outer lid led - scales with screen brightness)
 * material (opening it up will wear down the platic, aluminium lid catch scratches)
@@ -127,7 +128,6 @@ Meh:
 Trash:
 * keyboard backlight led (blue is very dim)
 * BIOS (limited configuration options)
-* gpu (proprietary drivers - cannot configure)
 
 This is a personal opinion of the GL703GS after almost three years of service, and can differ from model to model.
 
