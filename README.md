@@ -1,6 +1,6 @@
 ASUS ROG STRIX GL703
 ====================
-Setting up and configuring linux on the Asus ROG Strix GL703. The machine used in this guide is the GL703GS, installed with openSUSE Tumbleweed. Configuration is similar in all GL703 and GL503 models.
+Setting up and configuring linux on the Asus ROG Strix GL703 and GL503. The machine used in this guide is the GL703GS, installed with openSUSE Tumbleweed. Configuration is similar in all GL703 and GL503 models.
 
 Kernel
 ------
