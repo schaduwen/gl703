@@ -128,6 +128,7 @@ Meh:
 Trash:
 * keyboard backlight led (blue is very dim)
 * BIOS (limited configuration options)
+* dust (advertised 'ADVANCED ANTI-DUST COOLING SYSTEM' is a lie)
 
 This is a personal opinion of the GL703GS after almost three years of service, and can differ from model to model.
 
