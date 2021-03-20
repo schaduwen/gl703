@@ -35,14 +35,14 @@ For example, with rogauracore:
 2. Configure and make install program.
 3. Bind rogauracore brightness commands to XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp using your preferred method.
 
-Without kernel 5.11+, N-Key keyboards needs to be waken on boot to accept rogauracore commands:
+Without kernel 5.11+, N-Key keyboards need to be waken on boot to accept rogauracore commands:
 ```
 /usr/local/bin/rogauracore initialize_keyboard
 ```
 
 Usage
 -----
-#### Get CPU fan preset:
+#### Get CPU fan preset
 ```
 cat /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
@@ -51,13 +51,13 @@ fan_boost_mode can take the following values:
 * `1`: Overboost.
 * `2`: Silent.
 
-#### Get CPU fan speed:
+#### Get CPU fan speed
 ```
 cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon*/fan1_input
 ```
 Fan speed is measured in rotations/revolutions per minute (RPM). Silent preset CPU fan speed never exceeds 2900RPM.
 
-#### Configure CPU fan presets (root required):
+#### Configure CPU fan presets (root required)
 ```
 echo 2 > /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
@@ -66,7 +66,7 @@ Using sudo and tee:
 echo 2 | sudo tee /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
 
-#### Undervolt CPU (root required):
+#### Undervolt CPU (root required)
 Undervolting CPU core and CPU cache by -130mV:
 ```
 /usr/local/bin/undervolt --core -130 --cache -130
@@ -76,7 +76,7 @@ Temperature limits are also supported. Limit CPU temp to 80 degree celsius:
 /usr/local/bin/undervolt --temp 80
 ```
 
-#### Configure keyboard backlight brightness:
+#### Configure keyboard backlight brightness
 ```
 /usr/local/bin/rogauracore brightness 0
 ```
@@ -86,7 +86,7 @@ rogauracore brightness can take the following values:
 * `2`: 66%
 * `3`: 100%
 
-#### Configure keyboard backlight color:
+#### Configure keyboard backlight color
 ```
 /usr/local/bin/rogauracore green
 ```
