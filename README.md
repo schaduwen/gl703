@@ -101,3 +101,39 @@ References
 [3] https://forum.manjaro.org/t/sound-from-speakers-no-sound-from-3-5mm-jack-audio/5343/27
 
 [4] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
+
+FAQ
+---
+#### Why openSUSE?
+* Rolling release.
+* Supports snapshots and rollbacks.
+* Secure and trusted boot support.
+* Minimal install (<300 packages with text mode install).
+* All of the above out of the box without messing with the system.
+
+The GL703GS is a gaming machine. Cutting edge packages are often required for the best performance in wine/proton (eg. glibc) and so rolling distributions often provide better gaming experiences. The btrfs filesystem and snapshot support complements rolling release systems. Simply rollback if anything breaks. Secure and trusted boot support means users do not need to fiddle with their bios settings and allows their computer to dual boot windows. With the no-recommends flag, openSUSE Tumbleweed is as light as Arch. openSUSE caters to the majority in that it offers all these features through their comprehensive installer. It is very hard to mess up the installation proccess.
+
+#### Is the GL703GS a good laptop?
+Good:
+* screen (fast, non-existent backlight bleed)
+* gpu (proprietary drivers - cannot configure)
+
+Meh:
+* cpu (hot)
+* fan (loud, constantly spins up and down on silent mode)
+* lid (cannot disable outer lid led - scales with screen brightness)
+* material (opening it up will wear down the platic, aluminium lid catch scratches)
+
+Trash:
+* keyboard backlight led (blue is very dim)
+* BIOS (limited configuration options)
+
+This is a personal opinion of the Gl703GS after almost three years of service, and can differ from model to model.
+
+Author's Notes
+--------------
+Feel free to nag me. I'm more than willing to help and answer questions -20 March 2021.
+
+Schaduwen
+
+
