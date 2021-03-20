@@ -26,17 +26,15 @@ As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be includ
 Keyboard Backlight
 ------------------
 Functionality for the Fn keys need to be manually implemented.
-
-#### ROG Aura Core alternatives:
+Recommended ROG Aura Core alternatives:
 * rogauracore by wroberts (https://github.com/wroberts/rogauracore)
 * OpenRGB by CalcProgrammer1 (https://github.com/CalcProgrammer1/OpenRGB)
 
-I went with rogauracore:
+For example, with rogauracore:
 1. Install dependencies (libusb-1_0-devel on openSUSE).
-2. Compile program, instructions on their respective githubs.
-3. Bind the rogauracore brightness commands to the XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp keys using your preferred method.
+2. Configure and make install program.
+3. Bind rogauracore brightness commands to XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp using your preferred method.
 
-#### N-Key keyboards with old kernels:
 Without kernel 5.11+, N-Key keyboards needs to be waken on boot to accept rogauracore commands:
 ```
 /usr/local/bin/rogauracore initialize_keyboard
