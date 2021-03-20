@@ -116,7 +116,7 @@ The GL703GS is a gaming machine. Cutting edge packages are often required for th
 #### Is the GL703GS a good laptop?
 Good:
 * screen (fast, non-existent backlight bleed)
-* gpu (proprietary drivers - cannot configure)
+* gpu (crushes games at 1080p)
 
 Meh:
 * cpu (hot)
@@ -127,8 +127,9 @@ Meh:
 Trash:
 * keyboard backlight led (blue is very dim)
 * BIOS (limited configuration options)
+* gpu (proprietary drivers - cannot configure)
 
-This is a personal opinion of the Gl703GS after almost three years of service, and can differ from model to model.
+This is a personal opinion of the GL703GS after almost three years of service, and can differ from model to model.
 
 Author's Notes
 --------------
