@@ -35,7 +35,7 @@ For example, with rogauracore:
 2. Configure and make install program.
 3. Bind rogauracore brightness commands to XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp using your preferred method.
 
-Without kernel 5.11+, N-Key keyboards need to be waken on boot to accept rogauracore commands:
+Without kernel 5.11+, N-Key keyboards need to be wakened on boot to accept rogauracore commands:
 ```
 /usr/local/bin/rogauracore initialize_keyboard
 ```
@@ -71,7 +71,7 @@ Undervolting CPU core and CPU cache by -130mV:
 ```
 /usr/local/bin/undervolt --core -130 --cache -130
 ```
-Temperature limits are also supported. Limit CPU temp to 80 degree celsius:
+Temperature limits are also supported. Limit CPU temp to 80 degree Celsius:
 ```
 /usr/local/bin/undervolt --temp 80
 ```
@@ -111,7 +111,7 @@ FAQ
 * Minimal install (<300 packages with text mode install).
 * All of the above out of the box without messing with the system.
 
-The GL703GS is a gaming machine. Cutting edge packages are often required for the best performance in wine/proton (eg. glibc) and so rolling distributions often provide better gaming experiences. The btrfs filesystem and snapshot support complements rolling release systems. Simply rollback if anything breaks. Secure and trusted boot support means users do not need to fiddle with their bios settings and allows their computer to dual boot windows. With the no-recommends flag, openSUSE Tumbleweed is as light as Arch. openSUSE caters to the majority in that it offers all these features through their comprehensive installer. It is very hard to mess up the installation proccess.
+The GL703GS is a gaming machine. Cutting edge packages are often required for the best performance in wine/proton (eg. glibc) and so rolling distributions often provide better gaming experiences. The btrfs filesystem and snapshot support complements rolling release systems. Simply rollback if anything breaks. Secure and trusted boot support means users do not need to fiddle with their bios settings and allows their computer to dual boot windows. With the no-recommends flag, openSUSE Tumbleweed is as light as Arch. openSUSE caters to the majority in that it offers all these features through their comprehensive installer. It is very hard to mess up the installation process.
 
 #### Is the GL703GS a good laptop?
 Good:
@@ -123,19 +123,19 @@ Meh:
 * gpu (proprietary drivers - cannot configure)
 * fan (loud, constantly spins up and down on silent mode)
 * lid (cannot disable outer lid led - scales with screen brightness)
-* material (opening it up will wear down the platic, aluminium lid catch scratches)
+* material (opening it up will wear down the plastic, aluminum lid catch scratches)
 
 Trash:
 * keyboard backlight led (blue is very dim)
 * BIOS (limited configuration options)
 * dust (advertised 'ADVANCED ANTI-DUST COOLING SYSTEM' is a lie)
 
-This is a personal opinion of the GL703GS after almost three years of service, and can differ from model to model.
+This is just an opinion of the GL703GS after almost three years of service, and can differ from model to model.
 
 Author's Notes
 --------------
-Feel free to nag me. I'm more than willing to help and answer questions -20 March 2021.
+Feel free to nag me. I'm more than willing to help and answer questions.
 
-Schaduwen
+Schaduwen -22 March 2021
 
 
