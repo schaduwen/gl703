@@ -13,6 +13,8 @@ With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now wo
 
 Headphone/mic Jack
 ------------------
+Currently broken on kernel 5.13.12. Investigation pending.
+
 Sometime during kernel 5.7, an update caused the headphone/microphone jack to not work [[3]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 Add `options snd-hda-intel model=dell-headset-multi` to /etc/modprobe.d/alsa.conf.
 If the alsa.conf does not exist, create it.
