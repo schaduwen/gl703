@@ -1,15 +1,15 @@
-ASUS ROG STRIX GL703
-====================
-Setting up and configuring linux on the Asus ROG Strix GL703 and GL503. The machine used in this guide is the GL703GS, installed with openSUSE Tumbleweed. Configuration is similar in all GL703 and GL503 models.
+Preface
+-------
+Set up and configure linux for the Asus ROG Strix GL703GS. Configuration is applicable to GL703 and GL503 models.
 
 Kernel
 ------
-Ensure whatever distribution used has a kernel recent enough to support the features you need:
+Ensure the distribution's kernel supports the features you want:
 * Fan control (5.7+)
 * Fn keys (5.11+)
 
-Prior to kernel 5.7, configuring fan_boost_mode caused 100% CPU utilization [[1]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
-With kernel 5.11, support for Asus N-Key keyboard is added. Function keys now work [[2]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+Kernel 5.7 fixed fan_boost_mode causing 100% CPU utilization when changing fan speed [[1]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+Kernel 5.11 added support for the keyboard Fn keys [[2]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Headphone/mic Jack
 ------------------
@@ -96,9 +96,9 @@ rogauracore accepts custom hex colors, backlight effects, and four zone coloring
 
 References
 ----------
-[1] In line 1725 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/platform/x86/asus-wmi.c?h=v5.6.13, the fan_boost_mode_store function returns the wrong value. This will cause 100% cpu utilization. This is fixed in kernel 5.7. To use an earlier kernel the following patch is required https://lkml.org/lkml/2020/3/4/351.
+[1] Line 1725 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/platform/x86/asus-wmi.c?h=v5.6.13, fan_boost_mode_store returns the wrong value. This causes 100% cpu utilization. To use an earlier kernel, the following patch is required https://lkml.org/lkml/2020/3/4/351.
 
-[2] Kernel hasn't included support for the N-Key keyboard (0b05:1866, line 190 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/hid/hid-ids.h?h=v5.10.16).
+[2] Line 190 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/hid/hid-ids.h?h=v5.10.16, no support for the N-Key keyboard (0b05:1866).
 
 [3] https://forum.manjaro.org/t/sound-from-speakers-no-sound-from-3-5mm-jack-audio/5343/27
 
