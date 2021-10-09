@@ -11,8 +11,8 @@ Ensure the distribution's kernel supports the features you want:
 
 Kernel 5.7 fixed fan_boost_mode_store causing 100% CPU utilization when changing fan speed[[1]](https://github.com/schaduwen/gl703/blob/master/README.md#references). Kernel 5.11 added support for the keyboard Fn keys[[2]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
-Headphone/mic Jack
-------------------
+Fix Headphone/Microphone Jack
+-----------------------------
 During kernel 5.7 on Tumbleweed, an update caused no sound from the headphone/microphone jack[[3]](https://github.com/schaduwen/gl703/blob/master/README.md#references). This update introduced, changed the ASUS default headphone model to headset mode with microphone.
 
 To revert this change, change the HD-Audio Codec-Specific model by adding the following to /etc/modprobe.d/alsa-base.conf[[4]](https://github.com/schaduwen/gl703/blob/master/README.md#references):
@@ -23,10 +23,19 @@ If alsa-base.conf does not exist, create it. The device needs to be powered off 
 
 Relevant threads: Manjaro[[5]](https://github.com/schaduwen/gl703/blob/master/README.md#references), Arch[[6]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
-Undervolt
----------
-The i7-8750H can be undervolted with the program undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
-As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included[[7]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+Undervolt CPU
+-------------
+The i7-8750H can be undervolted with undervolt by georgewhewell:
+
+```
+git clone https://github.com/georgewhewell/undervolt
+```
+
+As of kernel 5.9 and newer, undervolting this way will result in a warning. To not get the warning add kernel parameter:
+
+`msr.allow_writes=on`
+
+This is an optional configuration and should only be used if you know what you are doing[[7]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Keyboard Backlight
 ------------------
