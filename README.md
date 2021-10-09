@@ -8,22 +8,22 @@ Ensure the distribution's kernel supports the features you want:
 * Fan control (5.7+)
 * Fn keys (5.11+)
 
-Kernel 5.7 fixed fan_boost_mode causing 100% CPU utilization when changing fan speed [[1]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
-Kernel 5.11 added support for the keyboard Fn keys [[2]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+Kernel 5.7 fixed fan_boost_mode_store causing 100% CPU utilization when changing fan speed[[1]](https://github.com/schaduwen/gl703/blob/master/README.md#references). Kernel 5.11 added support for the keyboard Fn keys[[2]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Headphone/mic Jack
 ------------------
-Currently broken on kernel 5.13.12. Investigation pending.
+During kernel 5.7 on Tumbleweed, an update caused no sound from the headphone/microphone jack[[3]](https://github.com/schaduwen/gl703/blob/master/README.md#references). This update introduced, changed the ASUS default headphone model to headset mode with microphone.
 
-Sometime during kernel 5.7, an update caused the headphone/microphone jack to not work [[3]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
-Add `options snd-hda-intel model=dell-headset-multi` to /etc/modprobe.d/alsa.conf.
-If the alsa.conf does not exist, create it.
-The device needs to be powered off (not rebooted) for the changes to take effect.
+To revert this change, change the HD-Audio Codec-Specific model by adding the following to /etc/modprobe.d/alsa-base.conf[[4]](https://github.com/schaduwen/gl703/blob/master/README.md#references):
+
+`options snd_hda_intel index=0 model=headset-mode-no-hp-mic`
+
+If alsa-base.conf does not exist, create it. The device needs to be powered off (do not reboot) for the changes to take effect.
 
 Undervolt
 ---------
 The i7-8750H can be undervolted with the program undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
-As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included [[4]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included[[4]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Keyboard Backlight
 ------------------
@@ -100,9 +100,13 @@ References
 
 [2] Line 190 of https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/drivers/hid/hid-ids.h?h=v5.10.16, no support for the N-Key keyboard (0b05:1866).
 
-[3] https://forum.manjaro.org/t/sound-from-speakers-no-sound-from-3-5mm-jack-audio/5343/27
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/diff/sound/pci/hda/patch_realtek.c?id=v5.7.9&id2=v5.7.10
 
-[4] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
+[4] https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#Correctly_detect_microphone_plugged_in_a_4-pin_3.5mm_.28TRRS.29_jack
+
+[5] https://forum.manjaro.org/t/sound-from-speakers-no-sound-from-3-5mm-jack-audio/5343/27
+
+[6] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
 
 FAQ
 ---
