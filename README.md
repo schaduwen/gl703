@@ -25,11 +25,9 @@ Relevant threads: Manjaro[[5]](https://github.com/schaduwen/gl703/blob/master/RE
 
 Undervolt CPU
 -------------
-The i7-8750H can be undervolted with undervolt by georgewhewell:
+The i7-8750H can be undervolted with:
 
-```
-git clone https://github.com/georgewhewell/undervolt
-```
+* undervolt (https://github.com/georgewhewell/undervolt) by georgewhewell
 
 As of kernel 5.9 and newer, undervolting this way will result in a warning. To not get the warning add kernel parameter:
 
@@ -39,17 +37,17 @@ This is an optional configuration and should only be used if you know what you a
 
 Keyboard Backlight
 ------------------
-Functionality for the Fn keys need to be manually implemented.
-Recommended ROG Aura Core alternatives:
-* rogauracore by wroberts (https://github.com/wroberts/rogauracore)
-* OpenRGB by CalcProgrammer1 (https://github.com/CalcProgrammer1/OpenRGB)
+Functionality for the Fn keys need to be manually implemented. This means binding the keyboard shortcuts to the desired keyboard backlight program.
 
-For example, with rogauracore:
-1. Install dependencies (libusb-1_0-devel on openSUSE).
-2. Configure and make install program.
-3. Bind rogauracore brightness commands to XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp using your preferred method.
+Recommended ROG Aura Core alternatives include:
 
-Without kernel 5.11+, N-Key keyboards need to be wakened on boot to accept rogauracore commands:
+* rogauracore (https://github.com/wroberts/rogauracore) by wroberts
+* OpenRGB (https://github.com/CalcProgrammer1/OpenRGB) by CalcProgrammer1
+
+For example, with rogauracore you would bind the rogauracore brightness commands to XF86XK_KbdBrightnessDown and XF86XK_KbdBrightnessUp.
+
+If not using kernel 5.11 and above, the keyboard will need to be 'wakened' on boot to accept rogauracore commands:
+
 ```
 /usr/local/bin/rogauracore initialize_keyboard
 ```
@@ -57,54 +55,67 @@ Without kernel 5.11+, N-Key keyboards need to be wakened on boot to accept rogau
 Usage
 -----
 #### Get CPU fan preset
+
 ```
 cat /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
-fan_boost_mode can take the following values:
-* `0`: Balanced (default).
-* `1`: Overboost.
-* `2`: Silent.
+
+fan_boost_mode can use the following values:
+
+* `0`: Balanced (default)
+* `1`: Overboost
+* `2`: Silent
 
 #### Get CPU fan speed
+
 ```
 cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon*/fan1_input
 ```
-Fan speed is measured in rotations/revolutions per minute (RPM). Silent preset CPU fan speed never exceeds 2900RPM.
+
+Fan speed is measured in rotations/revolutions per minute (RPM). The silent preset has a hard cap of 2900RPM.
 
 #### Configure CPU fan presets (root required)
+
 ```
 echo 2 > /sys/devices/platform/asus-nb-wmi/fan_boost_mode
 ```
-Using sudo and tee:
-```
-echo 2 | sudo tee /sys/devices/platform/asus-nb-wmi/fan_boost_mode
-```
 
 #### Undervolt CPU (root required)
+
 Undervolting CPU core and CPU cache by -130mV:
+
 ```
 /usr/local/bin/undervolt --core -130 --cache -130
 ```
-Temperature limits are also supported. Limit CPU temp to 80 degree Celsius:
+
+Temperature limits are also supported. Limit CPU temperature to 80 degrees Celsius:
+
 ```
 /usr/local/bin/undervolt --temp 80
 ```
 
 #### Configure keyboard backlight brightness
+
+To use 33% brightness:
+
 ```
-/usr/local/bin/rogauracore brightness 0
+/usr/local/bin/rogauracore brightness 1
 ```
-rogauracore brightness can take the following values:
+
+With rogauracore brightness can take the following values:
+
 * `0`: 0%
 * `1`: 33%
 * `2`: 66%
 * `3`: 100%
 
 #### Configure keyboard backlight color
+
 ```
 /usr/local/bin/rogauracore green
 ```
-rogauracore accepts custom hex colors, backlight effects, and four zone coloring.
+
+Custom hex colors, different backlight effects, and four zone coloring are available with rogauracore.
 
 References
 ----------
@@ -125,37 +136,38 @@ References
 FAQ
 ---
 #### Why openSUSE?
-* Rolling release.
-* Supports snapshots and rollbacks.
-* Secure and trusted boot support.
-* Minimal install (<300 packages with text mode install).
-* All of the above out of the box without messing with the system.
 
-The GL703GS is a gaming machine. Cutting edge packages are often required for the best performance in wine/proton (eg. glibc) and so rolling distributions often provide better gaming experiences. The btrfs filesystem and snapshot support complements rolling release systems. Simply rollback if anything breaks. Secure and trusted boot support means users do not need to fiddle with their bios settings and allows their computer to dual boot windows. With the no-recommends flag, openSUSE Tumbleweed is as light as Arch. openSUSE caters to the majority in that it offers all these features through their comprehensive installer. It is very hard to mess up the installation process.
+* Rolling release
+* Supports snapshots and rollbacks with snapper and btrfs
+* Secure and trusted boot support - able to dual boot windows with openSUSE
+* Minimal install, the installer is comprehensive enough to choose specific packages
+* All of the above with just the installer - no need to get down and dirty like arch for the same result
 
-#### Is the GL703GS a good laptop?
-Good:
-* screen (fast, non-existent backlight bleed)
-* gpu (crushes games at 1080p)
+The GL703GS is still considered new hardware. A new kernel and cutting edge packages are often required for wine/proton so rolling release distributions is the choice for a better gaming experience.
 
-Meh:
-* cpu (hot)
-* gpu (proprietary drivers - cannot configure)
-* fan (loud, constantly spins up and down on silent mode)
-* lid (cannot disable outer lid led - scales with screen brightness)
-* material (opening it up will wear down the plastic, aluminum lid catch scratches)
+The btrfs filesystem and snapshot support with snapper complements rolling release systems. Updates breaking the system can be simply rollbacked.
 
-Trash:
-* keyboard backlight led (blue is very dim)
-* BIOS (limited configuration options)
-* dust (advertised 'ADVANCED ANTI-DUST COOLING SYSTEM' is a lie)
+Secure and trusted boot support means users do not need to mess with their bios and allows dual booting of windows if required.
 
-This is just an opinion of the GL703GS after almost three years of service, and can differ from model to model.
+With zypper no-recommends flag, openSUSE Tumbleweed is as lightweight as Arch. It does it all and offers all these features in their comprehensive installer.
+
+#### GL703GS quirks for potential owners?
+
+* CPU can get really hot
+* GPU Nvidia proprietary drivers cannot change the maximum operating temperature
+* Fans are loud, and will ramp up and down on silent mode
+* Brightness of the lights on the back of the screen lid scales with screen brightness and cannot be turned off
+* Aluminum material of the laptop lid will scratch and catch dust
+* Blue led's of the keyboard backlight is very dim
+* The BIOS has limited configuration options
+* The advertised 'ADVANCED ANTI-DUST COOLING SYSTEM' is a lie
+
+This is just my opinion of the GL703GS after three years of service, expectations can differ from model to model.
 
 Author's Notes
 --------------
 Feel free to nag me. I'm more than willing to help and answer questions.
 
-Schaduwen -22 March 2021
+Schaduwen
 
 
