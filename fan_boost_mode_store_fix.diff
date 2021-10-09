@@ -1,0 +1,29 @@
+Function fan_boost_mode_store returns 0 if store is successful,
+this leads to infinite loop after any write to it's sysfs entry:
+
+# echo 0 >/sys/devices/platform/asus-nb-wmi/fan_boost_mode
+
+This command never ends, one CPU core is at 100% utilization.
+This patch fixes this by returning size of written data.
+
+Fixes: b096f626a682 ("platform/x86: asus-wmi: Switch fan boost mode")
+Signed-off-by: Leonid Maksymchuk <leonmaxx@gmail.com>
+---
+ drivers/platform/x86/asus-wmi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/platform/x86/asus-wmi.c b/drivers/platform/x86/asus-wmi.c
+index 612ef5526226..e5d35987c048 100644
+--- a/drivers/platform/x86/asus-wmi.c
++++ b/drivers/platform/x86/asus-wmi.c
+@@ -1719,7 +1719,7 @@ static ssize_t fan_boost_mode_store(struct device *dev,
+ 	asus->fan_boost_mode = new_mode;
+ 	fan_boost_mode_write(asus);
+ 
+-	return result;
++	return count;
+ }
+ 
+ // Fan boost mode: 0 - normal, 1 - overboost, 2 - silent
+-- 
+2.25.1
