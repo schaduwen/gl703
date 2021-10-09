@@ -5,6 +5,7 @@ Set up and configure linux for the Asus ROG Strix GL703GS. Configuration is appl
 Kernel
 ------
 Ensure the distribution's kernel supports the features you want:
+
 * Fan control (5.7+)
 * Fn keys (5.11+)
 
@@ -20,10 +21,12 @@ To revert this change, change the HD-Audio Codec-Specific model by adding the fo
 
 If alsa-base.conf does not exist, create it. The device needs to be powered off (do not reboot) for the changes to take effect.
 
+Relevant threads: Manjaro[[5]](https://github.com/schaduwen/gl703/blob/master/README.md#references), Arch[[6]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+
 Undervolt
 ---------
 The i7-8750H can be undervolted with the program undervolt by georgewhewell (https://github.com/georgewhewell/undervolt).
-As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included[[4]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
+As of kernel 5.9+, the kernel parameter `msr.allow_writes=on` needs to be included[[7]](https://github.com/schaduwen/gl703/blob/master/README.md#references).
 
 Keyboard Backlight
 ------------------
@@ -106,7 +109,9 @@ References
 
 [5] https://forum.manjaro.org/t/sound-from-speakers-no-sound-from-3-5mm-jack-audio/5343/27
 
-[6] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
+[6] https://bbs.archlinux.org/viewtopic.php?id=259320
+
+[7] https://www.phoronix.com/scan.php?page=news_item&px=Linux-Filter-Tightening-MSRs
 
 FAQ
 ---
